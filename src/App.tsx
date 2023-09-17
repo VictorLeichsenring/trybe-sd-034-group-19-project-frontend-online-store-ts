@@ -4,7 +4,7 @@ import Search from './components/Search';
 import Layout from './components/Layout';
 import Cart from './components/Cart';
 
-export default async function App() {
+export default function App() {
   return (
     <div className="App">
       <NavLink data-testid="shopping-cart-button" to="/cart">Carrinho</NavLink>
