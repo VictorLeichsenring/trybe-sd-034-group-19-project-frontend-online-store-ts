@@ -4,16 +4,13 @@ import './Categories.css';
 
 export default function Categories() {
   const [categorias, setCategorias] = useState([]);
-
   useEffect(() => {
     const fetchCategories = async () => {
       const data = await getCategories();
       setCategorias(data);
     };
-
     fetchCategories();
   }, []);
-
   return (
     <div
       className="categories-container"
@@ -31,11 +28,8 @@ export default function Categories() {
               data-testid="category"
               className="category-item"
             >
-
               <button>{categoria.name}</button>
-
             </li>
-
           ))}
         </ul>
       </div>
