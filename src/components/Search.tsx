@@ -1,3 +1,5 @@
+import Categories from './Categories';
+
 export default function Search() {
   return (
     <div>
@@ -9,6 +11,7 @@ export default function Search() {
       <h2 data-testid="home-initial-message">
         Digite algum termo de pesquisa ou escolha uma categoria.
       </h2>
+      <Categories />
     </div>
   );
 }

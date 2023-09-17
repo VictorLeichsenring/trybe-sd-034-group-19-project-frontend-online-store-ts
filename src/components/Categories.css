@@ -1,0 +1,31 @@
+.categories-container {
+  display: flex;
+}
+
+.sidebar {
+  background-color: #f0f0f0; /* Cor de fundo da barra lateral */
+  padding: 10px;
+  width: 200px;
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+}
+
+.category-item {
+  margin-bottom: 8px;
+}
+
+.category-item button {
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+.category-item button:hover {
+  background-color: #f9f9f9;
+}
