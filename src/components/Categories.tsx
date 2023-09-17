@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { getCategories } from '../services/api';
 import './Categories.css';
@@ -23,13 +24,12 @@ export default function Categories() {
           className="category-list"
         >
           {categorias.map((categoria) => (
-            <li
-              key={ categoria.id }
-              data-testid="category"
-              className="category-item"
-            >
-              <button>{categoria.name}</button>
+            <li key={ categoria.id }>
+              <Link to={ `/category/${categoria.id}` } data-testid="category">
+                {categoria.name}
+              </Link>
             </li>
+
           ))}
         </ul>
       </div>

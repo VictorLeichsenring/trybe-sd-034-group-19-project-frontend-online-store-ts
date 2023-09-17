@@ -3,6 +3,7 @@ import './App.css';
 import Search from './components/Search';
 import Layout from './components/Layout';
 import Cart from './components/Cart';
+import CategoryProducts from './components/CategoryProducts';
 
 export default function App() {
   return (
@@ -13,6 +14,8 @@ export default function App() {
         <Route element={ <Layout /> }>
           <Route path="/cart" element={ <Cart /> } />
           <Route path="/search" element={ <Search /> } />
+          <Route path="/category/:categoryId" element={ <CategoryProducts /> } />
+
         </Route>
       </Routes>
     </div>
