@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { getCategories } from '../services/api';
+import React, { useState } from 'react';
 import Categories from './Categories';
 
 export default function Search() {
