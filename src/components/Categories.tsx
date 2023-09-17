@@ -31,7 +31,6 @@ export default function Categories() {
               data-testid="category"
               className="category-item"
             >
-
               <button>{categoria.name}</button>
 
             </li>
