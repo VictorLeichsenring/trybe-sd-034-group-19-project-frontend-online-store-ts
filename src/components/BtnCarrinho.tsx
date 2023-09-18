@@ -8,7 +8,7 @@ function BtnCarrinho({ product }: any) {
 
   function AddCard() {
     const updatedCart = [...addProducts, product];
-    setAddProducts(updatedCart);
+    setAddProducts(updatedCart as any);
 
     // adicionando no local storage
     localStorage.setItem('addProducts', JSON.stringify(updatedCart));

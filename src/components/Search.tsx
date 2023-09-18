@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import Categories from './Categories';
 import BtnCarrinho from './BtnCarrinho';
 
@@ -61,7 +62,16 @@ export default function Search() {
                 {' '}
                 {product.price.toFixed(2)}
               </p>
-              <BtnCarrinho product={ product } />
+              <BtnCarrinho
+                product={ product }
+                data-testid="shopping-cart-button"
+              />
+              <NavLink
+                to={ `/product/${product.id}` }
+                data-testid="product-detail-link"
+              >
+                Detalhes do Produto
+              </NavLink>
             </li>
           ))}
         </ul>
