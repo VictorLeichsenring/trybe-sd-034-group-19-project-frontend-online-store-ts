@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function BtnCarrinho({ product }) {
+function BtnCarrinho({ product }: any) {
   const [addProducts, setAddProducts] = useState([]);
 
   const navigate = useNavigate();
 
-  function AddCard(product) {
+  function AddCard(param: string) {
     const updatedCart = [...addProducts, product];
     setAddProducts(updatedCart);
 
