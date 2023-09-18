@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
+import BtnCarrinho from './BtnCarrinho';
 
 export default function CategoryProducts() {
   const { categoryId } = useParams();
@@ -24,6 +25,7 @@ export default function CategoryProducts() {
             <img src={ product.thumbnail } alt={ product.title } />
             <p>{product.title}</p>
             <p>{product.price}</p>
+            <BtnCarrinho product={ product } />
           </li>
         ))}
       </ul>
