@@ -6,7 +6,7 @@ function BtnCarrinho({ product }: any) {
 
   const navigate = useNavigate();
 
-  function AddCard(param: string) {
+  function AddCard() {
     const updatedCart = [...addProducts, product];
     setAddProducts(updatedCart);
 
