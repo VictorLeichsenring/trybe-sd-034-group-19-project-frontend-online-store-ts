@@ -27,7 +27,7 @@ function BtnCarrinho({ product }: any) {
   return (
     <button
       data-testid="product-add-to-cart"
-      onClick={ () => AddCard(product) }
+      onClick={ () => AddCard() }
     >
       Adicionar ao Carrinho
     </button>
