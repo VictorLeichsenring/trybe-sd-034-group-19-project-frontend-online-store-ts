@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Categories from './Categories';
+import BtnCarrinho from './BtnCarrinho';
 
 export default function Search() {
   const [termo, setTermo] = useState('');
@@ -60,6 +61,7 @@ export default function Search() {
                 {' '}
                 {product.price.toFixed(2)}
               </p>
+              <BtnCarrinho product={ product } />
             </li>
           ))}
         </ul>
