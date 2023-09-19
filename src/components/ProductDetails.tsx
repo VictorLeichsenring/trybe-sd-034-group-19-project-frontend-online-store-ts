@@ -34,3 +34,5 @@ export default function ProductDetails() {
     </div>
   );
 }
+
+// comentario para iniciar o requisito
