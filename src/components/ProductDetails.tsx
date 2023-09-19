@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Product } from './types';
 
 export default function ProductDetails() {
   const { productId }: any = useParams();
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState<Product | null>(null);
   useEffect(() => {
     const fetchCategoryProducts = async () => {
       const response = await fetch(`https://api.mercadolibre.com/items/${productId}`);
@@ -12,7 +13,9 @@ export default function ProductDetails() {
     };
     fetchCategoryProducts();
   }, [productId]);
-  console.log(product);
+
+  if (!product) return null;
+
   return (
     <div>
       <h1
@@ -31,6 +34,3 @@ export default function ProductDetails() {
     </div>
   );
 }
-// MLB3031276468
-// tenis
-// https://api.mercadolibre.com/items/MLB3031276468
