@@ -22,16 +22,16 @@ export default function CategoryProducts() {
       <h1>Produtos da Categoria</h1>
       <ul>
         {products.map((product) => (
-          <li key={ product.id }>
+          <li key={ product.id } data-testid="product">
+            <img src={ product.thumbnail } alt={ product.title } />
             <Link
               to={ `/product/${product.id}` }
               data-testid="product-detail-link"
             >
-              <img src={ product.thumbnail } alt={ product.title } />
               <p>{product.title}</p>
-              <p>{product.price}</p>
-              <BtnCarrinho product={ product } />
             </Link>
+            <p>{product.price}</p>
+            <BtnCarrinho product={ product } />
           </li>
         ))}
       </ul>
