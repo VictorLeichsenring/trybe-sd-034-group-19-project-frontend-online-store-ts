@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import BtnCarrinho from './BtnCarrinho';
+import { Product } from './types';
 
 export default function CategoryProducts() {
   const { categoryId } = useParams();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchCategoryProducts = async () => {

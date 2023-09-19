@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import imagens from '../imagens/carrinho-vazio.png';
+import { Product } from './types';
 
 export default function Cart() {
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
 
   // Pegar os produtos do localStorage ao carregar a página
   useEffect(() => {
