@@ -90,6 +90,7 @@ export default function Cart() {
           ))}
         </ul>
       )}
+      <button data-testid="checkout-products">Finalizar</button>
     </div>
   );
 }
