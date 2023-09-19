@@ -31,7 +31,10 @@ export default function CategoryProducts() {
               <p>{product.title}</p>
             </Link>
             <p>{product.price}</p>
-            <BtnCarrinho product={ product } />
+            <BtnCarrinho
+              product={ product }
+              data-testid="product-add-to-cart"
+            />
           </li>
         ))}
       </ul>
