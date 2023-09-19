@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import BtnCarrinho from './BtnCarrinho';
 import { Product } from './types';
@@ -22,11 +22,16 @@ export default function CategoryProducts() {
       <h1>Produtos da Categoria</h1>
       <ul>
         {products.map((product) => (
-          <li key={ product.id } data-testid="product">
-            <img src={ product.thumbnail } alt={ product.title } />
-            <p>{product.title}</p>
-            <p>{product.price}</p>
-            <BtnCarrinho product={ product } />
+          <li key={ product.id }>
+            <Link
+              to={ `/product/${product.id}` }
+              data-testid="product-detail-link"
+            >
+              <img src={ product.thumbnail } alt={ product.title } />
+              <p>{product.title}</p>
+              <p>{product.price}</p>
+              <BtnCarrinho product={ product } />
+            </Link>
           </li>
         ))}
       </ul>
