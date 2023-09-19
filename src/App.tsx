@@ -1,5 +1,5 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 import './App.css';
 import Search from './components/Search';
 import Layout from './components/Layout';
@@ -8,11 +8,6 @@ import CategoryProducts from './components/CategoryProducts';
 import ProductDetails from './components/ProductDetails';
 
 export default function App() {
-  const [productDetails, setProductDetails] = useState('');
-  const handleProductDetails = () => {
-    setProductDetails(productDetails);
-  };
-
   return (
     <div className="App">
       <NavLink data-testid="shopping-cart-button" to="/cart">Carrinho</NavLink>
@@ -20,7 +15,7 @@ export default function App() {
         <Route
           path="/"
           element={
-            <Search handleProductDetails={ handleProductDetails } />
+            <Search />
           }
         />
         <Route element={ <Layout /> }>
@@ -29,7 +24,7 @@ export default function App() {
           <Route
             path="/product/:productId"
             element={
-              <ProductDetails />
+              <ProductDetails data-testid="product-detail-link" />
             }
           />
 

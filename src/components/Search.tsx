@@ -54,25 +54,25 @@ export default function Search() {
       ) : (
         <ul>
           {searchResults.map((product) => (
-            <li key={ product.id } data-testid="product">
-              <h2>{product.title}</h2>
-              <img src={ product.thumbnail } alt={ product.title } />
-              <p>
-                Preço: R$
-                {' '}
-                {product.price.toFixed(2)}
-              </p>
-              <BtnCarrinho
-                product={ product }
-                data-testid="shopping-cart-button"
-              />
-              <NavLink
-                to={ `/product/${product.id}` }
-                data-testid="product-detail-link"
-              >
-                Detalhes do Produto
-              </NavLink>
-            </li>
+            <NavLink
+              key={ product.id }
+              to={ `/product/${product.id}` }
+              data-testid="product-detail-link"
+            >
+              <li data-testid="product">
+                <h2>{product.title}</h2>
+                <img src={ product.thumbnail } alt={ product.title } />
+                <p>
+                  Preço: R$
+                  {' '}
+                  {product.price.toFixed(2)}
+                </p>
+                <BtnCarrinho
+                  product={ product }
+                  data-testid="shopping-cart-button"
+                />
+              </li>
+            </NavLink>
           ))}
         </ul>
       )}
