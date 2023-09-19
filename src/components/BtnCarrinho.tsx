@@ -17,14 +17,23 @@ function BtnCarrinho({ product }: any) {
     // Recuperar o carrinho atual do localStorage
     const currentCart = JSON.parse(localStorage.getItem('addProducts') || '[]');
 
-    // Adicionar o novo produto ao carrinho
-    const updatedCart = [...currentCart, product];
+    // Verificar se o produto já está no carrinho
+    const existingProductIndex = currentCart.findIndex((p: any) => p.id === product.id);
+
+    if (existingProductIndex !== -1) {
+      // Se o produto já estiver no carrinho, apenas incrementar a quantidade
+      currentCart[existingProductIndex].quantity += 1;
+    } else {
+      // Se o produto não estiver no carrinho, adicionar com quantidade 1
+      const productWithQuantity = { ...product, quantity: 1 };
+      currentCart.push(productWithQuantity);
+    }
 
     // Salvar o carrinho atualizado no localStorage
-    localStorage.setItem('addProducts', JSON.stringify(updatedCart));
+    localStorage.setItem('addProducts', JSON.stringify(currentCart));
 
-    // Atualizar o estado local (opcional, já que estamos usando o localStorage como fonte única de verdade)
-    setAddProducts(updatedCart);
+    // Atualizar o estado local
+    setAddProducts(currentCart);
   }
 
   // pegando do logal storage ao regarregar

@@ -1,21 +1,26 @@
 import { useEffect, useState } from 'react';
 import imagens from '../imagens/carrinho-vazio.png';
-import { Product } from './types';
+import { Product, CartProduct } from './types';
 
 export default function Cart() {
-  const [cartProducts, setCartProducts] = useState<Product[]>([]);
+  const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
+
   const [carrinho, setCarrinho] = useState([]);
-  const [quantidade, setQuantidade] = useState(1);
+  // const [quantidade, setQuantidade] = useState(1);
 
   // Função para incrementar
-  function increment() {
-    setQuantidade(quantidade + 1);
+  function increment(index: number) {
+    const updatedCart = [...cartProducts];
+    updatedCart[index].quantity += 1;
+    setCartProducts(updatedCart);
   }
 
   // Função para decrementar
-  function decrement() {
-    if (quantidade > 1) {
-      setQuantidade(quantidade - 1);
+  function decrement(index: number) {
+    const updatedCart = [...cartProducts];
+    if (updatedCart[index].quantity > 1) {
+      updatedCart[index].quantity -= 1;
+      setCartProducts(updatedCart);
     }
   }
 
@@ -59,17 +64,17 @@ export default function Cart() {
               </p>
               <button
                 data-testid="product-decrease-quantity"
-                onClick={ decrement }
+                onClick={ () => decrement(index) }
               >
                 -
 
               </button>
               <p data-testid="shopping-cart-product-quantity">
-                {quantidade}
+                {product.quantity}
               </p>
               <button
                 data-testid="product-increase-quantity"
-                onClick={ increment }
+                onClick={ () => increment(index) }
               >
                 +
 
