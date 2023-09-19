@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { getCategories } from '../services/api';
 import './Categories.css';
+import { Categoria } from './types';
 
 export default function Categories() {
-  const [categorias, setCategorias] = useState([]);
+  const [categorias, setCategorias] = useState<Categoria[]>([]);
   useEffect(() => {
     const fetchCategories = async () => {
       const data = await getCategories();
