@@ -25,15 +25,18 @@ export default function Cart() {
         <ul>
           {cartProducts.map((product, index) => (
             <li key={ index }>
+              <button data-testid="remove-product">X</button>
               <p data-testid="shopping-cart-product-name">{product.title}</p>
               <p>
                 Preço: R$
                 {' '}
                 {product.price.toFixed(2)}
               </p>
+              <button data-testid="product-decrease-quantity">-</button>
               <p data-testid="shopping-cart-product-quantity">
-                Quantidade: 1
+                1
               </p>
+              <button data-testid="product-increase-quantity">+</button>
             </li>
           ))}
         </ul>
