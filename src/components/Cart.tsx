@@ -91,12 +91,6 @@ export default function Cart() {
           ))}
         </ul>
       )}
-      <NavLink
-        to="/checkout"
-        data-testid="checkout-products"
-      >
-        Finalizar Compra
-      </NavLink>
     </div>
   );
 }
