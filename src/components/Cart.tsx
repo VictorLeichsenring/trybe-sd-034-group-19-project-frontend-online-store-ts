@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import imagens from '../imagens/carrinho-vazio.png';
-import { Product, CartProduct } from './types';
+import { CartProduct } from './types';
 
 export default function Cart() {
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
@@ -90,7 +91,12 @@ export default function Cart() {
           ))}
         </ul>
       )}
-      <button data-testid="checkout-products">Finalizar</button>
+      <NavLink
+        to="/checkout"
+        data-testid="checkout-products"
+      >
+        Finalizar Compra
+      </NavLink>
     </div>
   );
 }
