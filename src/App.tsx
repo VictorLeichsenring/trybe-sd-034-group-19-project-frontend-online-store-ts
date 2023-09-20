@@ -1,10 +1,12 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
+// import { useState } from 'react';
 import './App.css';
 import Search from './components/Search';
 import Layout from './components/Layout';
 import Cart from './components/Cart';
 import CategoryProducts from './components/CategoryProducts';
 import ProductDetails from './components/ProductDetails';
+import Checkout from './components/PageCheckout';
 
 export default function App() {
   return (
@@ -28,6 +30,7 @@ export default function App() {
           />
 
         </Route>
+        <Route path="/checkout" element={ <Checkout /> } />
       </Routes>
     </div>
   );
