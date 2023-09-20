@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import imagens from '../imagens/carrinho-vazio.png';
 import { Product, CartProduct } from './types';
 
@@ -7,6 +8,7 @@ export default function Cart() {
 
   const [carrinho, setCarrinho] = useState([]);
   // const [quantidade, setQuantidade] = useState(1);
+  const navigate = useNavigate();
 
   // Função para incrementar
   function increment(index: number) {
@@ -90,7 +92,13 @@ export default function Cart() {
           ))}
         </ul>
       )}
-      <button data-testid="checkout-products">Finalizar</button>
+      <button
+        data-testid="checkout-products"
+        onClick={ () => navigate('/checkout') }
+      >
+        Finalizar
+
+      </button>
     </div>
   );
 }
