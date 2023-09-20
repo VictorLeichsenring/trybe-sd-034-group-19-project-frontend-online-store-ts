@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import imagens from '../imagens/carrinho-vazio.png';
-import { Product, CartProduct } from './types';
+import { CartProduct } from './types';
 
 export default function Cart() {
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
 
-  const [carrinho, setCarrinho] = useState([]);
   // const [quantidade, setQuantidade] = useState(1);
   const navigate = useNavigate();
 
@@ -90,15 +89,14 @@ export default function Cart() {
               </button>
             </li>
           ))}
+          <button
+            data-testid="checkout-products"
+            onClick={ () => navigate('/checkout') }
+          >
+            Finalizar
+          </button>
         </ul>
       )}
-      <button
-        data-testid="checkout-products"
-        onClick={ () => navigate('/checkout') }
-      >
-        Finalizar
-
-      </button>
     </div>
   );
 }
